@@ -1,38 +1,88 @@
-.App {
-  text-align: center;
+.header {
+  background-color: #8c4bff;
+  height: 60px;
+  color: #fff;
+  padding: 0.5rem 2rem;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.brand {
+  /* padding: 0; */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.header-items {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-content: space-between;
+}
+
+.btn {
+  height: 40px;
+  background-color: #1e1d80;
+  padding: 0 2rem;
+  transition: all 350ms;
+  border: 1px solid #1e1d80;
+  border-radius: 5px;
+  color: #fff;
+}
+
+.btn:hover {
+  color: #1e1d80;
+  background-color: #fff;
+}
+
+.page-padding {
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.card-image {
+  height: 250px;
+  width: 100%;
+  object-fit: contain;
+}
+
+.card-top {
+  border-radius: 7px 7px 0 0;
+  height: 17rem;
+  color: #fff;
+  padding: 1rem;
+  object-fit: contain;
+}
+
+.flex-list {
+  display: flex;
+  list-style: none;
+}
+
+.flex {
+  display: flex;
+}
+
+.list-item {
+  margin: 0 0.7rem;
+}
+
+.align-center {
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
 }
 
-.App-link {
-  color: #61dafb;
+.artwork-details {
+  padding: 1rem 1rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.artwork-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  place-content: center;
+  grid-gap: 3rem 1rem;
+  list-style: none;
+}
+
+.artwork-card {
+  background-color: #fff;
+  box-shadow: 0 2px 3px #c0c0c0;
+  border: 0;
+  border-radius: 5px;
+  width: 25rem;
 }

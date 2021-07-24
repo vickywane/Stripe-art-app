@@ -1,0 +1,34 @@
+{
+  "artworks": [
+    {
+      "id": 1,
+      "name": "Sea Coral",
+      "img_uri": "https://images.metmuseum.org/CRDImages/ad/original/DP258638.jpg",
+      "description": "Some artwork here for you to buy"
+    },
+    {
+      "id": 1,
+      "name": "Sea Coral",
+      "img_uri": "https://images.metmuseum.org/CRDImages/ad/original/DP258638.jpg",
+      "description": "Some artwork here for you to buy"
+    },
+    {
+      "id": 1,
+      "name": "Sea Coral",
+      "img_uri": "https://images.metmuseum.org/CRDImages/ad/original/DP258638.jpg",
+      "description": "Some artwork here for you to buy"
+    },
+    {
+      "id": 1,
+      "name": "Sea Coral",
+      "img_uri": "https://images.metmuseum.org/CRDImages/ad/original/DP258638.jpg",
+      "description": "Some artwork here for you to buy"
+    },
+    {
+      "id": 1,
+      "name": "Sea Coral",
+      "img_uri": "https://images.metmuseum.org/CRDImages/ad/original/DP258638.jpg",
+      "description": "Some artwork here for you to buy"
+    }
+  ]
+}
