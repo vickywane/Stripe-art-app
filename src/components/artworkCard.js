@@ -1,4 +1,6 @@
-const ArtworkCard = ({ name, description, img_uri }) => (
+import { navigate } from "@reach/router";
+
+const ArtworkCard = ({ name, description, img_uri, price, product_id }) => (
   <div className="artwork-card">
     <div
       className="card-top"
@@ -12,18 +14,27 @@ const ArtworkCard = ({ name, description, img_uri }) => (
     </div>
 
     <div className="artwork-details">
-      <hr />
-      <div style={{ justifyContent: "space-between" }} className="flex">
-        <div className="align-center">
-          <p> $12.00 </p>
-        </div>
-
-        <div>
-          <button className="btn">Purchase</button>
-        </div>
-      </div>
-      <br />
+      <p> $12.00 </p>
       <p> {description} </p>
+
+      <div style={{ justifyContent: "space-between" }} className="flex"></div>
+      <button
+        onClick={() =>
+          navigate(`product/${name}`, {
+            state: {
+              name,
+              description,
+              price,
+              img_uri,
+              product_id,
+            },
+          })
+        }
+        className="btn"
+      >
+        View Artwork
+      </button>
+      <br />
     </div>
   </div>
 );

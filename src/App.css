@@ -2,7 +2,8 @@
   background-color: #8c4bff;
   height: 60px;
   color: #fff;
-  padding: 0.5rem 2rem;
+  padding: .8rem 2rem;
+  border-bottom: 1px solid #fff;
 }
 
 .brand {
@@ -42,15 +43,44 @@
 
 .card-top {
   border-radius: 7px 7px 0 0;
-  height: 17rem;
+  height: 13rem;
   color: #fff;
   padding: 1rem;
   object-fit: contain;
+  background-position: center;
 }
 
 .flex-list {
   display: flex;
   list-style: none;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.5rem;
+}
+
+.payment-input {
+  height: 42px;
+  border: 1px solid #c0c0c0;
+  padding: 0.5rem 1rem;
+  background: transparent;
+}
+
+.banner {
+  /* display: flex; */
+  background-color: #8c4bff;
+  justify-content: left;
+  width: 100%;
+  height: 35vh;
+  color: #fff;
+  align-items: center;
+}
+
+.title {
+  font-weight: 500;
+  font-size: 1.3rem;
 }
 
 .flex {
@@ -73,7 +103,7 @@
 
 .artwork-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
   place-content: center;
   grid-gap: 3rem 1rem;
   list-style: none;
@@ -84,5 +114,51 @@
   box-shadow: 0 2px 3px #c0c0c0;
   border: 0;
   border-radius: 5px;
-  width: 25rem;
+  width: 20rem;
+}
+
+.artwork-card:hover {
+  cursor: pointer;
+}
+
+/* PRODUCT PAGE */
+
+.product-img {
+  height: 500px;
+  object-fit: contain;
+}
+
+.product-page-padding {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: auto 50%;
+  grid-gap: 1rem 3rem;
+}
+
+.product-card {
+  background: #fff;
+}
+
+.padding {
+  padding: 1rem 1rem;
+}
+
+.product-specifications {
+  list-style: none;
+  margin: 0;
+}
+
+.specification {
+  margin: 0.7rem 0;
+  padding: 0;
+}
+
+.payment-card {
+  background: #fff;
+  width: 37rem;
+  padding: 1.5rem;
 }
