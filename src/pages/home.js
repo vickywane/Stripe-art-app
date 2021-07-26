@@ -1,38 +1,60 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Header from "../components/header";
 import "../App.css";
-import Data from "./mock.json";
+import Banner from "../components/banner";
 import ArtworkCard from "../components/artworkCard";
-import { useAuth0 } from "@auth0/auth0-react";
 
 const Home = () => {
-  const { user, isAuthenticated, isLoading } = useAuth0();
+  const [artworks, setArtworks] = useState([]);
+
+  useEffect(() => {
+    (async () => await fetchArtworks())();
+  }, []);
+
+  const fetchArtworks = async () => {
+    const res = await fetch(`${process.env.REACT_APP_FUNCTION_ENDPOINT}/products`);
+    const { data } = await res.json();
+
+    setArtworks(data);
+  };
 
   return (
-    <div style={{ backgroundColor: "#F3F6FC", height: window.innerHeight }}>
+    <div style={{ backgroundColor: "#F3F6FC", height: "100vh" }}>
       <Header />
+      <Banner />
+      <br />
       <br />
 
       <div className="page-padding">
-        <h3> Today's Art Collections </h3>
-        <p>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatem a
-          praesentium doloremque velit in inventore nisi nulla soluta
-          perspiciatis. Placeat dolor quae recusandae aperiam aliquid adipisci a
-          inventore minima sit.
-        </p>
+        <div style={{}}>
+          <div className="flex">
+            <div className="align-center">
+              <h4> My Rated Art Paints </h4>
+            </div>
+          </div>
+
+          <p>
+            Every artist dips his brush in his own soul, <br />
+            and paints his own nature into his pictures.
+          </p>
+        </div>
+
         <br />
-        <ul className="artwork-list">
-          {Data.artworks.map(({ id, name, description, img_uri }) => (
-            <li key={id}>
-              <ArtworkCard
-                description={description}
-                img_uri={img_uri}
-                name={name}
-              />
-            </li>
-          ))}
-        </ul>
+
+        <div>
+          <ul className="artwork-list">
+            {artworks.map(({ id, name, img_uri, images, description }) => (
+              <li key={id}>
+                <ArtworkCard
+                  productId={id}
+                  description={description}
+                  img_uri={images[0]}
+                  name={name}
+                />
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </div>
   );
