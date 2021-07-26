@@ -8,7 +8,7 @@ const Checkout = (props) => {
   const { purchaseType, priceEntityId, name, price } = props.location.state;
 
   const [cardNumber, setCardNumber] = useState("4242424242424242");
-  const [cardName, setCardName] = useState("Nwani Victory");
+  const [cardName, setCardName] = useState("John Doe");
   const [cvc, setcvc] = useState("211");
   const [cardExpiryMonth, setCardExpiryMonth] = useState("08");
   const [cardExpiryYear, setCardExpiryYear] = useState("2024");
@@ -29,6 +29,7 @@ const Checkout = (props) => {
             number: cardNumber,
             exp_month: cardExpiryMonth,
             exp_year: cardExpiryYear,
+            purchaseAmount : price,
             purchaseType,
             priceEntityId,
             cvc,
@@ -38,17 +39,23 @@ const Checkout = (props) => {
       );
 
       if (res.status === 200) {
-        const data = await res.json();
+        await res.json();
 
         setPaymentSuccess(true);
-
-        console.log(data);
       }
     } catch (e) {
       console.log(e);
     } finally {
       setLoading(false);
     }
+  };
+
+  const formatPrice = (price) => {
+    let n = price.toString().split("");
+
+    n.push(".", n.length - 3);
+
+    return n.join("");
   };
 
   return (
@@ -60,17 +67,25 @@ const Checkout = (props) => {
     >
       <Header />
 
-      <div className="product-page-padding">
-        <br />
-
+      <div
+        className="product-page-padding"
+        style={{
+          height: window.innerHeight,
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
         <div className="align-center">
           <div className="payment-card">
-            <h5 className="align-center"> {name} </h5>
+            <h5 className="align-center">
+              <b>{name} Checkout </b>
+            </h5>
             <p>
-              <b>Total Price:</b> {`$${price}`}
+              <b>Total Price:</b> {`$${formatPrice(price)}`}
             </p>
             <p>
-              <b> Product Id: </b> {new Date().getTime()}{" "}
+              <b> Payment Type: </b> {purchaseType.toUpperCase()}
             </p>
 
             <hr />
@@ -126,6 +141,7 @@ const Checkout = (props) => {
                     type="text"
                   />
                 </div>
+                <br />
                 <div className="input-container">
                   <label id="name"> Card Expiry Year </label>
                   <input
@@ -147,7 +163,7 @@ const Checkout = (props) => {
                   }}
                   className="btn"
                 >
-                  {!loading ? "Confirm" : "Confirming"} Payment
+                  {!loading ? "Confirm" : "Confirming"} My Payment
                 </button>
               </form>
             ) : (

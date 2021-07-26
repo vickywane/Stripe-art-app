@@ -17,6 +17,17 @@ const ArtworkCard = ({ name, description, img_uri, productId }) => {
     setPriceData(data);
   };
 
+  const formatPrice = (price) => {
+    if (price) {
+      let n = price.toString().split("");
+
+      n.push(".", n.length - 3);
+
+      console.log(n)
+      return n.join("");
+    }
+  };
+
   return (
     <div className="artwork-card">
       <div
@@ -33,7 +44,7 @@ const ArtworkCard = ({ name, description, img_uri, productId }) => {
         <hr />
         <div style={{ justifyContent: "space-between" }} className="flex">
           <div className="align-center">
-            <p> {`$${priceData.unit_amount}`} </p>
+            <p> {`$${formatPrice(priceData.unit_amount)}`} </p>
           </div>
 
           <div>
@@ -46,7 +57,7 @@ const ArtworkCard = ({ name, description, img_uri, productId }) => {
                     productId,
                     priceEntityId: priceData.id,
                     price: priceData.unit_amount,
-                    purchaseType : priceData.type
+                    purchaseType: priceData.type,
                   },
                 })
               }

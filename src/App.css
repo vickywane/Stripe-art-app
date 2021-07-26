@@ -7,10 +7,6 @@
   border-bottom: 1px solid #fff;
 }
 
-.brand {
-  /* padding: 0; */
-}
-
 .header-items {
   display: flex;
   justify-content: space-between;
@@ -160,6 +156,8 @@
 
 .payment-card {
   background: #fff;
+  border-radius: 10px;
   width: 37rem;
+  box-shadow : 0 6px 12px #c0c0c0;
   padding: 1.5rem;
 }
