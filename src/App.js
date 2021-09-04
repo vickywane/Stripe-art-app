@@ -9,8 +9,8 @@ import Checkout from "./pages/checkout";
 function App() {
   return (
     <Auth0Provider
-      domain={process.env.REACT_APP_AUTHO_DOMAIN}
-      clientId={process.env.REACT_APP_AUTHO_CLIENTID}
+      domain={process.env.REACT_APP_AUTH0_CLIENT_DOMAIN}
+      clientId={process.env.REACT_APP_AUTH0_CLIENT_ID}
       redirectUri={process.env.REACT_APP_AUTHO_REDIRECT_URI}
     >
       <Router>
